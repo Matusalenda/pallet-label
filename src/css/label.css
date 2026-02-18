@@ -1,0 +1,232 @@
+/* Label Template Styles */
+
+@page {
+  size: A4 portrait;
+  margin: 10mm;
+}
+
+@media print {
+  #labelTemplate {
+    display: block !important;
+  }
+  .view-container,
+  .alertModal {
+    display: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+}
+
+.label-page {
+  margin: 0;
+  width: 190mm;
+  height: 277mm;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  box-sizing: border-box;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  page-break-after: always;
+  page-break-inside: avoid;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.label-company-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 1cm;
+  background-color: white;
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.label-date {
+  width: 100%;
+  height: 1cm;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  font-size: 23px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.label-operator-section {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid black;
+}
+
+.label-operator-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  width: 60%;
+  height: 2cm;
+  box-sizing: border-box;
+  background: white;
+  border-right: 2px solid black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.label-operator-label {
+  padding-top: 5px;
+  text-align: center;
+  font-weight: bold;
+  width: 100%;
+}
+
+.label-operator-name {
+  font-size: 25px;
+}
+
+.label-sector-info {
+  width: 40%;
+  height: 2cm;
+  justify-content: space-between;
+  padding: 5px;
+  box-sizing: border-box;
+  background: white;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.label-sector-label {
+  padding-top: 5px;
+  text-align: center;
+  font-weight: bold;
+  width: 100%;
+}
+
+.label-sector-name {
+  font-size: 15px;
+  text-align: center;
+}
+
+.label-pn-title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1cm;
+  background-color: white;
+  color: black;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  border-bottom: 2px solid black;
+}
+
+.label-qr-section {
+  width: 100%;
+  height: 3cm;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.label-qr-code {
+  width: 12%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.label-pn-top {
+  width: 100%;
+  height: 5.5cm;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 200px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.label-pn-bottom {
+  width: 100%;
+  height: 5.5cm;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 200px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  transform: scaleX(1);
+}
+
+.label-qty-title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1cm;
+  background-color: white;
+  color: black;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
+}
+
+.label-qty {
+  width: 100%;
+  height: 4.8cm;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 190px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.label-qr-bottom-section {
+  width: 100%;
+  height: 3cm;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+.label-history {
+  width: 100%;
+  height: 1.5cm;
+  font-size: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-top: 2px solid black;
+  gap: 5px;
+}
+
+.label-history-fields {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.label-history-field-first {
+  text-align: center;
+}
