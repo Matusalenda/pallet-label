@@ -10,7 +10,10 @@ export function view1Setup() {
 
     if (operator !== "") {
       appState.operatorName = name.toUpperCase();
-      appState.operatorSector = `${sector.toUpperCase()}<br>${shift}º TURNO`;
+      appState.operatorSector =
+        sector && shift
+          ? `${sector.toUpperCase()}<br>${shift}º TURNO`
+          : '<span style="font-size: 3em;">N/D</span>';
       switchView("next");
     } else {
       customAlert("Insira o nome do operador!");

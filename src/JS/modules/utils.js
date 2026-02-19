@@ -116,7 +116,6 @@ export function customAlert(msg) {
   alertElements.alertBtn.onclick = () => {
     alertElements.modalAlert.style.display = "none";
 
-    // Remove readonly
     view1.inputName.readOnly = false;
     view2.inputPN.readOnly = false;
     view2.inputQTY.readOnly = false;

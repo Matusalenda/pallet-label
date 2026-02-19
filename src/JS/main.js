@@ -11,6 +11,5 @@ view2Setup();
 document.addEventListener("visibilitychange", () => {
   if (document.visibilityState === "visible") {
     initFocus();
-    // Pequeno delay para garantir que o DOM está pronto
   }
 });
