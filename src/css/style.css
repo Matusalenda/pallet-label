@@ -68,7 +68,7 @@ button:active {
 
 .pnReaded {
   width: 100%;
-  font-size: 3vh;
+  font-size: 2.7vh;
   color: black;
   text-align: center;
 }
@@ -292,4 +292,5 @@ input:read-only:focus {
 #labelTemplate {
   display: none;
 }
+
 
