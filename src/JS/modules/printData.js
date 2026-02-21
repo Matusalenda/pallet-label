@@ -1,5 +1,5 @@
 import { view2, appState, labelElements } from "./state.js";
-import { clear, customAlert, initFocus } from "./utils.js";
+import { clear, customAlert, initFocus, clearLabel } from "./utils.js";
 
 export function printData() {
   let AllFilled =
@@ -15,9 +15,19 @@ export function printData() {
     return;
   }
 
+  // Verifica se QRCode está disponível
+  if (typeof QRCode === "undefined") {
+    customAlert("Erro: Biblioteca QR Code não carregada. Recarregue a página.");
+    return;
+  }
+
   setLabelData();
   clear();
   window.print();
+
+  setTimeout(() => {
+    clearLabel();
+  }, 1000);
 }
 
 function setLabelData() {

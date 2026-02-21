@@ -1,4 +1,4 @@
-import { appState, view1, view2, views } from "./state.js";
+import { appState, view1, view2, views, labelElements } from "./state.js";
 import { alertElements } from "./state.js";
 
 // INITIAL FOCUS
@@ -56,6 +56,11 @@ export function clear() {
 
   view2.inputQTY.value = appState.isAuto === true ? "0" : "";
 
+  initFocus();
+}
+
+export function clearLabel() {
+  labelElements.date.textContent = "DATA";
   labelElements.name.innerHTML = "";
   labelElements.sector.innerHTML = "";
 
@@ -64,7 +69,8 @@ export function clear() {
 
   labelElements.labelQty.textContent = "";
 
-  initFocus();
+  labelElements.qrCode1.innerHTML = "";
+  labelElements.qrCode2.innerHTML = "";
 }
 
 // TOGGLE AUTO MODE BUTTON
