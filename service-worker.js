@@ -1,11 +1,12 @@
-const CACHE_NAME = "label-master-v4";
+const CACHE_NAME = "Rostinho-v6";
 const urlsToCache = [
   "./",
   "./index.html",
   "./manifest.json",
   "./src/css/style.css",
+  "./src/css/label.css",
   "./src/JS/main.js",
-  // label.css e qrcode-lib.js carregados sob demanda (lazy)
+  "./src/JS/lib/qrcode-lib.js",
   "./src/JS/modules/keyboard.js",
   "./src/JS/modules/printData.js",
   "./src/JS/modules/state.js",
@@ -54,12 +55,25 @@ self.addEventListener("activate", (event) => {
   );
 });
 
-// Interceptar requisições - strategy: Network First (busca online primeiro)
+// Interceptar requisições - strategy: Cache First (busca no cache primeiro)
 self.addEventListener("fetch", (event) => {
   event.respondWith(
-    fetch(event.request)
-      .then((response) => {
-        // Se conseguiu da rede, atualiza o cache
+    caches.match(event.request).then((cachedResponse) => {
+      if (cachedResponse) {
+        // Retorna do cache e atualiza em background
+        fetch(event.request)
+          .then((response) => {
+            if (response && response.status === 200) {
+              caches.open(CACHE_NAME).then((cache) => {
+                cache.put(event.request, response);
+              });
+            }
+          })
+          .catch(() => {});
+        return cachedResponse;
+      }
+      // Se não estiver no cache, busca da rede
+      return fetch(event.request).then((response) => {
         if (response && response.status === 200) {
           const responseToCache = response.clone();
           caches.open(CACHE_NAME).then((cache) => {
@@ -67,17 +81,7 @@ self.addEventListener("fetch", (event) => {
           });
         }
         return response;
-      })
-      .catch(() => {
-        // Se falhar (offline), tenta buscar do cache
-        console.log("[Service Worker] Offline - usando cache");
-        return caches.match(event.request).then((cachedResponse) => {
-          if (cachedResponse) {
-            return cachedResponse;
-          }
-          // Fallback para index.html se não encontrar no cache
-          return caches.match("./index.html");
-        });
-      }),
+      });
+    }),
   );
 });

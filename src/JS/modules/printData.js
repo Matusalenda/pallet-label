@@ -1,28 +1,7 @@
 import { view2, appState, labelElements } from "./state.js";
 import { clear, customAlert, initFocus } from "./utils.js";
 
-// Lazy load da biblioteca QR code
-let qrCodeLibLoaded = false;
-
-function loadQRCodeLib() {
-  return new Promise((resolve, reject) => {
-    if (qrCodeLibLoaded || window.QRCode) {
-      resolve();
-      return;
-    }
-
-    const script = document.createElement("script");
-    script.src = "src/JS/lib/qrcode-lib.js";
-    script.onload = () => {
-      qrCodeLibLoaded = true;
-      resolve();
-    };
-    script.onerror = reject;
-    document.head.appendChild(script);
-  });
-}
-
-export async function printData() {
+export function printData() {
   let AllFilled =
     appState.isAuto === true
       ? appState.lastPn !== "" && appState.qtyCount > 0
@@ -36,16 +15,9 @@ export async function printData() {
     return;
   }
 
-  try {
-    // Carrega a biblioteca QR code apenas quando necessário
-    await loadQRCodeLib();
-    setLabelData();
-    clear();
-    window.print();
-  } catch (error) {
-    console.error("Erro ao carregar biblioteca QR code:", error);
-    customAlert("Erro ao gerar QR codes. Tente novamente.");
-  }
+  setLabelData();
+  clear();
+  window.print();
 }
 
 function setLabelData() {

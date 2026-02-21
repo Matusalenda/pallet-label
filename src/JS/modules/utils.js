@@ -1,20 +1,6 @@
 import { appState, view1, view2, views } from "./state.js";
 import { alertElements } from "./state.js";
 
-// Carregamento lazy do CSS de impressão
-let labelCssLoaded = false;
-
-function loadLabelCSS() {
-  if (labelCssLoaded || document.querySelector('link[href*="label.css"]')) {
-    return;
-  }
-  const link = document.createElement("link");
-  link.rel = "stylesheet";
-  link.href = "src/css/label.css";
-  document.head.appendChild(link);
-  labelCssLoaded = true;
-}
-
 // INITIAL FOCUS
 export function initFocus() {
   if (appState.actualView === 0) {
@@ -37,9 +23,6 @@ export function initFocus() {
 export function switchView(direction) {
   appState.way = direction;
   if (appState.way == "next") {
-    // Carrega CSS de impressão apenas na view2
-    loadLabelCSS();
-
     view1.inputName.value = "";
     views[0].classList.add("INACTIVE");
     views[1].classList.remove("INACTIVE");
