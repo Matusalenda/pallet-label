@@ -51,8 +51,18 @@ export function clear() {
   appState.lastPn = "";
   appState.qtyCount = 0;
   view2.lastPnReaded.innerHTML = "";
+  appState.operatorName = "";
+  appState.operatorSector = "";
 
   view2.inputQTY.value = appState.isAuto === true ? "0" : "";
+
+  labelElements.name.innerHTML = "";
+  labelElements.sector.innerHTML = "";
+
+  labelElements.labelPnTop.textContent = "";
+  labelElements.labelPnBottom.textContent = "";
+
+  labelElements.labelQty.textContent = "";
 
   initFocus();
 }
@@ -148,3 +158,5 @@ export function pnFormat(pn) {
     return `${leftPn}-${midPn}`;
   }
 }
+
+// Limpeza inicial das variáveis
