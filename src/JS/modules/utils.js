@@ -163,4 +163,12 @@ export function pnFormat(pn) {
   }
 }
 
-// Limpeza inicial das variáveis
+export function printService() {
+  window.focus();
+
+  setTimeout(() => {
+    window.print();
+  }, 500);
+
+  window.onafterprint = () => window.stop();
+}
