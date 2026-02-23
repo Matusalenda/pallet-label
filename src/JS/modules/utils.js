@@ -51,8 +51,6 @@ export function clear() {
   appState.lastPn = "";
   appState.qtyCount = 0;
   view2.lastPnReaded.innerHTML = "";
-  appState.operatorName = "";
-  appState.operatorSector = "";
 
   view2.inputQTY.value = appState.isAuto === true ? "0" : "";
 

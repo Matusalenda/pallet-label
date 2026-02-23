@@ -24,11 +24,8 @@ export function printData() {
   setLabelData();
 
   clear();
-  
+
   window.print();
-  
-  
-  
 
   setTimeout(() => {
     clearLabel();
@@ -111,5 +108,3 @@ function generateQRCodes() {
   generateQRCode(labelElements.qrCode1, qr1Text);
   generateQRCode(labelElements.qrCode2, qr2Text);
 }
-
-
