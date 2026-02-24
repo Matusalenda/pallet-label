@@ -57,20 +57,6 @@ export function clear() {
   initFocus();
 }
 
-export function clearLabel() {
-  labelElements.date.textContent = "DATA";
-  labelElements.name.innerHTML = "";
-  labelElements.sector.innerHTML = "";
-
-  labelElements.labelPnTop.textContent = "";
-  labelElements.labelPnBottom.textContent = "";
-
-  labelElements.labelQty.textContent = "";
-
-  labelElements.qrCode1.innerHTML = "";
-  labelElements.qrCode2.innerHTML = "";
-}
-
 // TOGGLE AUTO MODE BUTTON
 export function toggleAutoButton() {
   appState.isAuto = !appState.isAuto;
@@ -163,12 +149,4 @@ export function pnFormat(pn) {
   }
 }
 
-export function printService() {
-  window.focus();
-
-  setTimeout(() => {
-    window.print();
-  }, 500);
-
-  window.onafterprint = () => window.stop();
-}
+export function printService() {}

@@ -1,11 +1,5 @@
 import { view2, appState, labelElements } from "./state.js";
-import {
-  clear,
-  customAlert,
-  initFocus,
-  clearLabel,
-  printService,
-} from "./utils.js";
+import { clear, customAlert, initFocus } from "./utils.js";
 
 export function printData() {
   let AllFilled =
@@ -29,13 +23,15 @@ export function printData() {
 
   setLabelData();
 
+  window.focus();
+
   clear();
 
-  printService();
-
   setTimeout(() => {
-    clearLabel();
-  }, 1000);
+    window.print();
+  }, 500);
+
+  window.onafterprint = () => window.stop();
 }
 
 function setLabelData() {
