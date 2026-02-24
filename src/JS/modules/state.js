@@ -61,5 +61,6 @@ const appState = {
     "Alt",
     "Control",
     "Shift",
+    "Escape",
   ],
 };
