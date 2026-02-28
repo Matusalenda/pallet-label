@@ -121,7 +121,7 @@ export function scanPn() {
       appState.lastPn = appState.lastPn || currentPn;
       appState.qtyCount++;
       view2.inputQTY.value = appState.qtyCount;
-      view2.lastPnReaded.innerHTML = `PN LIDO: ${pnFormat(appState.lastPn)}`;
+      view2.lastPnReaded.innerHTML = pnFormat(appState.lastPn);
 
       view2.inputPN.value = "";
       view2.inputPN.focus();
