@@ -81,7 +81,7 @@ button:active {
 
 .pnReaded {
   width: 100%;
-  font-size: clamp(21px, 8vw, 10vh);
+  font-size: clamp(19.5px, 7vw, 8.5vh);
   color: black;
   text-align: center;
 }
