@@ -42,25 +42,25 @@ button:active {
   font-size: 3vh;
   font-weight: bold;
   color: white;
-  width: 98%;
+  width: calc(100% - 10px);
   height: 8vh;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   overflow: hidden;
-  margin: 5px auto 0 auto;
+  margin: 5px;
   border-radius: 5px;
 }
 
 .header {
-  width: 98%;
+  width: calc(100% - 10px);
   height: 8vh;
   background-color: rgb(69, 67, 67);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 10px;
-  margin: 5px auto 0 auto;
+  margin: 5px;
   border-radius: 5px;
 }
 
@@ -92,14 +92,14 @@ button:active {
   min-width: fit-content;
   align-items: center;
   justify-content: space-around;
-  width: 98%;
+  width: calc(100% - 10px);
   height: 8vh;
   background-color: rgb(69, 67, 67);
   position: fixed;
   border-radius: 5px;
   bottom: 5px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 5px;
+  right: 5px;
   overflow: hidden;
 }
 
