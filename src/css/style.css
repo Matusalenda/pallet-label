@@ -123,7 +123,7 @@ button:active {
   box-sizing: border-box;
   text-align: center;
   width: 100vw;
-  margin-top: 10vh;
+  margin-top: 5vh;
   height: fit-content;
   min-width: fit-content;
   overflow: hidden;
@@ -131,7 +131,7 @@ button:active {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 20vh;
+  gap: 15vh;
 
   padding-bottom: 30px;
 }
@@ -308,3 +308,4 @@ input:read-only:focus {
 #labelTemplate {
   display: none;
 }
+
