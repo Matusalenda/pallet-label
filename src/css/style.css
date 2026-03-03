@@ -137,7 +137,8 @@ button:active {
 }
 
 .btns_visible {
-  background-color: rgb(215, 210, 210);
+  background-color: white;
+  border: 2px solid black;
   color: black;
   font-weight: bold;
   font-size: 2.5vh;
@@ -150,7 +151,6 @@ button:active {
 .btns_invisible {
   visibility: hidden;
   border: none;
-  font-weight: bold;
   font-size: 2vh;
   width: fit-content;
   height: 80%;
@@ -162,7 +162,6 @@ button:active {
   background-color: rgb(89, 87, 87);
   color: transparent;
   border: none;
-  font-weight: bold;
   font-size: 2vh;
   width: fit-content;
   padding: 0 10px;
@@ -308,4 +307,3 @@ input:read-only:focus {
 #labelTemplate {
   display: none;
 }
-

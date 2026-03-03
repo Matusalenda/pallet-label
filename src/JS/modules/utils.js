@@ -148,5 +148,3 @@ export function pnFormat(pn) {
     return `${leftPn}-${midPn}`;
   }
 }
-
-export function printService() {}
