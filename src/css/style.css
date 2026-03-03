@@ -13,6 +13,7 @@ body {
   font-weight: bold;
   overflow: hidden;
   height: 100%;
+  background-color: #f0f2f5;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -72,7 +73,7 @@ button:active {
 .pnReaded-container {
   width: 100vw;
   height: 7vh;
-  background-color: white;
+  background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -112,7 +113,7 @@ button:active {
   height: fit-content;
   min-width: fit-content;
   overflow: hidden;
-  background-color: white;
+  background-color: transparent;
   flex-direction: column;
   gap: 10vh;
   padding-bottom: 30px;
