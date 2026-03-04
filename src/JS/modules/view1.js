@@ -3,10 +3,10 @@ import { switchView, customAlert } from "./utils.js";
 
 export function view1Setup() {
   view1.enterBtn.addEventListener("click", () => {
-    let operator = view1.inputName.value.trim();
-    let name = operator.split(",")[0] || operator;
-    let sector = operator.split(",")[1] || "";
-    let shift = operator.split(",")[2] || ""; // Pega o primeiro nome ou o nome completo se for apenas um
+    const operator = view1.inputName.value.trim();
+    const name = operator.split(",")[0] || operator;
+    const sector = operator.split(",")[1] || "";
+    const shift = operator.split(",")[2] || ""; // Pega o primeiro nome ou o nome completo se for apenas um
 
     if (operator !== "") {
       appState.operatorName = name.toUpperCase();
