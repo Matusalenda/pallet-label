@@ -21,14 +21,17 @@ export function initFocus() {
 
 // SWITCH VIEWS BACK AND NEXT
 export function switchView(direction) {
-  // Reset zoom to 1.0
+  // Reset zoom to 1.0 by recreating viewport
   const viewport = document.querySelector('meta[name="viewport"]');
   if (viewport) {
-    const content = viewport.getAttribute("content");
-    viewport.setAttribute(
+    const parent = viewport.parentNode;
+    const newViewport = viewport.cloneNode(true);
+    newViewport.setAttribute(
       "content",
-      content.replace(/initial-scale=[0-9.]+/, "initial-scale=1.0"),
+      "width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.5, user-scalable=yes, viewport-fit=cover",
     );
+    parent.removeChild(viewport);
+    parent.appendChild(newViewport);
   }
 
   appState.way = direction;
