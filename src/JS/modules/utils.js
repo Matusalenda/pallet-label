@@ -30,13 +30,10 @@ export function switchView(direction) {
       "width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover",
     );
 
-    // Restore original max scale after a brief moment
-    setTimeout(() => {
-      viewport.setAttribute(
-        "content",
-        "width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.5, user-scalable=yes, viewport-fit=cover",
-      );
-    }, 100);
+    viewport.setAttribute(
+      "content",
+      "width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.5, user-scalable=yes, viewport-fit=cover",
+    );
   }
 
   appState.way = direction;
