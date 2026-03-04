@@ -21,24 +21,6 @@ export function initFocus() {
 
 // SWITCH VIEWS BACK AND NEXT
 export function switchView(direction) {
-  // Reset zoom to 1.0 by temporarily limiting maximum-scale
-  const viewport = document.querySelector('meta[name="viewport"]');
-  if (viewport) {
-    // Force zoom reset by limiting max scale
-    viewport.setAttribute(
-      "content",
-      "width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover",
-    );
-
-    // Restore original max scale in the next frame
-    requestAnimationFrame(() => {
-      viewport.setAttribute(
-        "content",
-        "width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.5, user-scalable=yes, viewport-fit=cover",
-      );
-    });
-  }
-
   appState.way = direction;
   if (appState.way == "next") {
     view1.inputName.value = "";
