@@ -30,13 +30,13 @@ export function switchView(direction) {
       "width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover",
     );
 
-    // Restore original max scale after a brief moment
-    setTimeout(() => {
+    // Restore original max scale in the next frame
+    requestAnimationFrame(() => {
       viewport.setAttribute(
         "content",
         "width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.5, user-scalable=yes, viewport-fit=cover",
       );
-    }, 10);
+    });
   }
 
   appState.way = direction;
