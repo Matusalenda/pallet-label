@@ -21,6 +21,16 @@ export function initFocus() {
 
 // SWITCH VIEWS BACK AND NEXT
 export function switchView(direction) {
+  // Reset zoom to 1.0
+  const viewport = document.querySelector('meta[name="viewport"]');
+  if (viewport) {
+    const content = viewport.getAttribute("content");
+    viewport.setAttribute(
+      "content",
+      content.replace(/initial-scale=[0-9.]+/, "initial-scale=1.0"),
+    );
+  }
+
   appState.way = direction;
   if (appState.way == "next") {
     view1.inputName.value = "";
