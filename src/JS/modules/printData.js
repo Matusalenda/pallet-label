@@ -13,6 +13,7 @@ export function printData() {
         view2.inputQTY.value !== "0";
 
   if (!AllFilled) {
+    appState.isPrinting = false;
     customAlert("Por favor, preencha todos os campos antes de imprimir.");
     initFocus();
     return;
@@ -20,7 +21,9 @@ export function printData() {
 
   // Verifica se QRCode está disponível
   if (typeof QRCode === "undefined") {
+    appState.isPrinting = false;
     customAlert("Erro: Biblioteca QR Code não carregada. Recarregue a página.");
+
     return;
   }
 
@@ -28,10 +31,9 @@ export function printData() {
 
   window.focus();
 
-  clear();
-
   setTimeout(() => {
     window.print();
+    clear();
     appState.isPrinting = false;
   }, 500);
 

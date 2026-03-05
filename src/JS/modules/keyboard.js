@@ -8,11 +8,27 @@ function blockKeys(event) {
 }
 
 export function keyboardHandler(event) {
-  // Se o modal de alerta estiver aberto, apenas permite fechar com Enter/F4
+  // Se o modal de alerta estiver aberto, bloqueia tudo e só permite fechar
   if (alertElements.modalAlert.style.display === "flex") {
-    if (event.key === "Enter") {
+    blockKeys(event);
+    if (
+      event.key === "Enter" ||
+      event.key === "F4" ||
+      event.key === "Escape" ||
+      event.key === "F9" ||
+      event.key === "Tab"
+    ) {
       event.preventDefault();
       alertElements.alertBtn.click();
+    }
+
+    if (
+      event.key === "F1" ||
+      event.key === "F2" ||
+      event.key === "F3" ||
+      appState.blockedKeys.includes(event.key)
+    ) {
+      event.preventDefault();
     }
     return;
   }
@@ -28,6 +44,12 @@ function view1KeyboardHandler(event) {
   blockKeys(event);
 
   switch (event.key) {
+    case "F1":
+    case "F2":
+    case "F3":
+    case "F9":
+      event.preventDefault();
+      break;
     case "Enter":
     case "Tab":
     case "F4":
@@ -36,7 +58,7 @@ function view1KeyboardHandler(event) {
         if (view1.inputName.value.trim() !== "") {
           view1.enterBtn.click();
         } else {
-          customAlert("Insira o nome do operador!");
+          customAlert("Insira o operador!");
         }
       }
       break;
