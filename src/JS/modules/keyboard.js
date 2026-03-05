@@ -75,6 +75,7 @@ function view2KeyboardHandler(event) {
   switch (event.key) {
     case "Enter":
     case "Tab":
+    case "F4":
       event.preventDefault();
 
       if (appState.isAuto === true) {
