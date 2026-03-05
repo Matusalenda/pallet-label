@@ -2,6 +2,9 @@ import { view2, appState, labelElements } from "./state.js";
 import { clear, customAlert, initFocus } from "./utils.js";
 
 export function printData() {
+  if (appState.isPrinting) return;
+  appState.isPrinting = true;
+
   let AllFilled =
     appState.isAuto === true
       ? appState.lastPn !== "" && appState.qtyCount > 0
@@ -29,6 +32,7 @@ export function printData() {
 
   setTimeout(() => {
     window.print();
+    appState.isPrinting = false;
   }, 500);
 
   window.onafterprint = () => window.stop();

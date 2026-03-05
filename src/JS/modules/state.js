@@ -49,6 +49,7 @@ const appState = {
   operatorName: "",
   operatorSector: "",
   way: "",
+  isPrinting: false,
 
   blockedKeys: [
     "F5",
