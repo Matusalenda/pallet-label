@@ -19,8 +19,18 @@ export function initFocus() {
   }
 }
 
+// RESET VIEWPORT ZOOM TO 1.0
+function resetZoom() {
+  const viewport = document.querySelector('meta[name="viewport"]');
+  if (viewport) {
+    const content = viewport.getAttribute("content");
+    viewport.setAttribute("content", content.replace(/initial-scale=[\d.]+/, "initial-scale=1.0"));
+  }
+}
+
 // SWITCH VIEWS BACK AND NEXT
 export function switchView(direction) {
+  resetZoom();
   appState.way = direction;
   if (appState.way == "next") {
     view1.inputName.value = "";
