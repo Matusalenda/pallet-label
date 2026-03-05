@@ -26,7 +26,7 @@ export function switchView(direction) {
     view1.inputName.value = "";
     views[0].classList.add("INACTIVE");
     views[1].classList.remove("INACTIVE");
-    appState.actualView++;
+    appState.actualView = 1;
     view2.displayName.innerText = `OPERADOR: ${appState.operatorName}`;
 
     initFocus();
@@ -40,7 +40,7 @@ export function switchView(direction) {
     views[1].classList.add("INACTIVE");
     views[0].classList.remove("INACTIVE");
 
-    appState.actualView--;
+    appState.actualView = 0;
     initFocus();
   }
 }
