@@ -17,19 +17,11 @@ export function initFocus() {
       view2.inputPN.focus();
     }
   }
-}
-
-// RESET VIEWPORT ZOOM TO 1.0
-function resetZoom() {
-  const el = document.documentElement;
-  el.style.transform = "scale(1)";
-  el.offsetHeight; // força reflow
-  el.style.transform = "";
-}
+}
 
 // SWITCH VIEWS BACK AND NEXT
 export function switchView(direction) {
-  resetZoom();
+  
   appState.way = direction;
   if (appState.way == "next") {
     view1.inputName.value = "";
