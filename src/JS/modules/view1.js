@@ -9,7 +9,7 @@ export function view1Setup() {
     const shift = operator.split(",")[2] || ""; // Pega o primeiro nome ou o nome completo se for apenas um
 
     if (operator !== "") {
-      appState.operatorName = name.toUpperCase();
+      appState.operatorName = name.slice(0, 20).toUpperCase();
       appState.operatorSector =
         sector && shift
           ? `${sector.toUpperCase()}<br>${shift}º TURNO`
