@@ -23,8 +23,19 @@ export function initFocus() {
 function resetZoom() {
   const viewport = document.querySelector('meta[name="viewport"]');
   if (viewport) {
-    const content = viewport.getAttribute("content");
-    viewport.setAttribute("content", content.replace(/initial-scale=[\d.]+/, "initial-scale=1.0"));
+    // Força zoom para 1.0 temporariamente
+    viewport.setAttribute(
+      "content",
+      "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
+    );
+
+    // Libera zoom novamente após aplicar o reset
+    setTimeout(() => {
+      viewport.setAttribute(
+        "content",
+        "width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes",
+      );
+    }, 100);
   }
 }
 
