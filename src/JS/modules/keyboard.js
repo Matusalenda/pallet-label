@@ -8,6 +8,12 @@ function blockKeys(event) {
 }
 
 export function keyboardHandler(event) {
+  // Bloqueia Ctrl+P (impressão do navegador)
+  if (event.ctrlKey && event.key === "p") {
+    event.preventDefault();
+    return;
+  }
+
   // Se o modal de alerta estiver aberto, bloqueia tudo e só permite fechar
   if (alertElements.modalAlert.style.display === "flex") {
     blockKeys(event);
