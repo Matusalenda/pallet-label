@@ -21,22 +21,10 @@ export function initFocus() {
 
 // RESET VIEWPORT ZOOM TO 1.0
 function resetZoom() {
-  const viewport = document.querySelector('meta[name="viewport"]');
-  if (viewport) {
-    // Força zoom para 1.0 temporariamente
-    viewport.setAttribute(
-      "content",
-      "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
-    );
-
-    // Libera zoom novamente após aplicar o reset
-    setTimeout(() => {
-      viewport.setAttribute(
-        "content",
-        "width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes",
-      );
-    }, 100);
-  }
+  const el = document.documentElement;
+  el.style.transform = "scale(1)";
+  el.offsetHeight; // força reflow
+  el.style.transform = "";
 }
 
 // SWITCH VIEWS BACK AND NEXT
@@ -169,3 +157,4 @@ export function pnFormat(pn) {
     return `${leftPn}-${midPn}`;
   }
 }
+
