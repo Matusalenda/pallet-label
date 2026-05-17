@@ -87,8 +87,7 @@ function view2KeyboardHandler(event) {
       if (appState.isAuto === true) {
         // Modo AUTO
         if (view2.inputPN.value.trim() === "") {
-          // inputPN vazio: imprime
-          view2.printBtn.click();
+          break;
         } else {
           // inputPN preenchido: escaneia
           scanPn();
@@ -96,8 +95,7 @@ function view2KeyboardHandler(event) {
       } else {
         // Modo MANUAL: Enter passa para próximo input
         if (currentIndex === inputElements.length - 1) {
-          // Está no último input (QTY): imprime
-          view2.printBtn.click();
+          break;
         } else if (
           currentIndex >= 0 &&
           currentIndex < inputElements.length - 1
@@ -110,6 +108,7 @@ function view2KeyboardHandler(event) {
         }
       }
       break;
+
     case "F1":
       event.preventDefault();
       view2.printBtn.click();
@@ -121,9 +120,6 @@ function view2KeyboardHandler(event) {
     case "F3":
       event.preventDefault();
       view2.modeBtn.click();
-      break;
-    case "F4":
-      event.preventDefault();
       break;
     case "F9":
       event.preventDefault();
